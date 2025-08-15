@@ -1,0 +1,90 @@
+# Tmux Key Bindings Reference (Leader: C-s)
+
+## Session Management
+- `tmux new -s <name>` - Create new named session
+- `tmux ls` - List all sessions
+- `tmux attach -t <name>` - Attach to session
+- `tmux kill-session -t <name>` - Kill specific session
+- `C-s d` - Detach from current session
+- `C-s s` - List and switch between sessions
+- `C-s $` - Rename current session
+- `C-s (` - Switch to previous session
+- `C-s )` - Switch to next session
+
+## Window Management
+- `C-s c` - Create new window
+- `C-s ,` - Rename current window
+- `C-s &` - Kill current window
+- `C-s n` - Go to next window
+- `C-s p` - Go to previous window
+- `C-s l` - Go to last used window
+- `C-s 0-9` - Go to window number
+- `C-s w` - List all windows
+- `C-s f` - Find window by name
+
+## Pane Management
+### Creating Panes
+- `C-s %` - Split window vertically (left/right)
+- `C-s "` - Split window horizontally (top/bottom)
+
+### Navigating Panes
+- `C-s o` - Cycle through panes
+- `C-s ;` - Go to last active pane
+- `C-s ↑/↓/←/→` - Move between panes (arrow keys)
+- `C-s h/j/k/l` - Move between panes (vim-style)
+- `C-s q` - Show pane numbers (then press number to select)
+
+### Resizing Panes
+- `C-s C-↑/↓/←/→` - Resize pane (hold Ctrl with arrow keys)
+- `C-s M-↑/↓/←/→` - Resize pane in larger increments (Alt + arrow)
+
+### Pane Operations
+- `C-s x` - Kill current pane
+- `C-s z` - Toggle pane zoom (full screen)
+- `C-s !` - Break pane into new window
+- `C-s {` - Move current pane left
+- `C-s }` - Move current pane right
+- `C-s C-o` - Rotate panes clockwise
+- `C-s M-o` - Rotate panes counter-clockwise
+- `C-s space` - Cycle through pane layouts
+
+## Copy Mode (Scrolling & Text Selection)
+- `C-s [` - Enter copy mode
+- `q` - Exit copy mode (while in copy mode)
+- `↑/↓/←/→` - Navigate (while in copy mode)
+- `C-u/C-d` - Page up/down (while in copy mode)
+- `g/G` - Go to top/bottom (while in copy mode)
+- `space` - Start selection (while in copy mode)
+- `enter` - Copy selection (while in copy mode)
+- `C-s ]` - Paste copied text
+
+## Miscellaneous
+- `C-s ?` - Show all key bindings
+- `C-s :` - Enter command mode
+- `C-s t` - Show clock
+- `C-s r` - Reload tmux config (if configured)
+- `C-s C-s` - Send literal C-s to application
+
+## Command Mode Examples
+After pressing `C-s :`, you can type:
+- `new-window -n <name>` - Create window with specific name
+- `rename-window <name>` - Rename current window
+- `swap-window -s <src> -t <dst>` - Swap windows
+- `move-window -t <position>` - Move window to position
+- `split-window -h` - Split horizontally
+- `split-window -v` - Split vertically
+- `list-keys` - List all key bindings
+- `source-file ~/.tmux.conf` - Reload config file
+
+## Useful Command Line Options
+- `tmux new-session -d -s <name>` - Create detached session
+- `tmux send-keys -t <session> '<command>' Enter` - Send command to session
+- `tmux capture-pane -t <session> -p` - Capture pane content
+- `tmux list-windows -t <session>` - List windows in session
+- `tmux list-panes -t <session>` - List panes in session
+
+## Notes
+- Replace `C-s` with your actual prefix key combination
+- Many commands can be customized in `~/.tmux.conf`
+- Use `man tmux` for complete documentation
+- Session names and window names are case-sensitive
